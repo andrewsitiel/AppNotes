@@ -1,4 +1,4 @@
-const databaseConnect = require("../datebase/sqlite/index")
+const databaseConnect = require("../database/sqlite/index")
 
 const appError = require('../utils/appError');
 

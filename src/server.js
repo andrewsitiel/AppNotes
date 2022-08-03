@@ -6,7 +6,7 @@ const router = require('./routes/index');
 
 const app = express();
 
-const migrationsRun = require('../src/datebase/sqlite/migrations/index');
+const migrationsRun = require('../src/database/sqlite/migrations/index');
 
 const appError = require('./utils/appError');
 
