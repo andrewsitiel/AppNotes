@@ -1,9 +1,16 @@
 const knex = require("../database/knex/index");
 
 class NotesController {
-  async create (req, res) {
-    const {title, description, tags, links} = req.body;
-    const {user_id} = req.params;
+
+  async index(request, response) {
+    const {user_id} = request.query;
+    
+    const NotesList = await knex("notes").where({user_id})
+  }
+
+  async create (request, response) {
+    const {title, description, tags, links} = request.body;
+    const {user_id} = request.params;
     
     const note_id = await knex("notes").insert({
       title,
@@ -29,8 +36,49 @@ class NotesController {
     await knex("tags").insert(noteTags);
     await knex("links").insert(noteLinks);
 
-    res.status(201).json()
+    response.status(201).json()
+  };
+  
+  async show (request, response){
+    const {note_id} = request.params;
+
+    const note = await knex("notes").where("id", note_id).first();
+    const tags = await knex("tags").where({note_id}).select("name").orderBy("name");
+    const links = await knex("links").where({note_id}).select("url").orderBy("created_at");
+
+    const tagNames = tags.map(tag => tag.name);
+    const linksUrl = links.map(link => link.url);
+
+    if(!note){
+      return response.status(204);
+    }
+
+    return response.status(200).json({
+      ...note,
+      tagNames,
+      linksUrl
+    });
+  };
+
+  async update (request,response) {
+    const { id } = request.params
+    const { title, description } = request.body
+    const updated_at = knex.fn.now()
+    
+    const note = await knex("notes").where({id})
+    .update({ title, description, updated_at });
+
+    return response.status(200).json("Nota Atualizada!!!");
+  }
+
+  async delete (request, response) {
+    const { id } = request.params;
+
+    await knex("notes").where({id}).delete();
+
+    return response.status(200).json("Nota deletada.");
   }
 }
+
 
 module.exports = NotesController;
