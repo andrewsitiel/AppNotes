@@ -1,6 +1,6 @@
 # AppNotes
 
-Back-End of a application for management of notes developed with NodeJs and using SQLite3 as SGBD.
+Back-End of an application for management of notes developed with NodeJs and using SQLite3 as SGBD.
 
 ## Techs
 
