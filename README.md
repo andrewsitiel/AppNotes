@@ -4,9 +4,9 @@ Back-End of a application for management of notes developed with NodeJs and usin
 
 ## Techs
 
-- Express
-- Knex
-- SQLite
+- [Express](https://expressjs.com/)
+- [Knex](http://knexjs.org/)
+- [SQLite](https://www.sqlite.org/index.html)
 
 ## Routes
 
