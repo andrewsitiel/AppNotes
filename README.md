@@ -1,7 +1,9 @@
 # AppNotes
+
 Back-End of a application for management of notes developed with NodeJs and using SQLite3 as SGBD.
 
 ## Techs
+
 - Express
 - Knex
 - SQLite
@@ -9,19 +11,22 @@ Back-End of a application for management of notes developed with NodeJs and usin
 ## Routes
 
 ### /users
-The users route supports *post* and *put* methods to create and update users in database. The put method needs an id param for identify the correct user.
+
+The users route supports *post* and *put* methods to **create** and **update** users in database. The put method needs an id param for identify the correct user.
 
 ### /notes
-The notes routes supports *get*, *post*, *put* and *delete* methods to show a especific note, to update a note, to delete a note and a index to query a note for his title, tags or only for the user id (list all user notes). All methods requires a id param:
 
-- show - needs an id for identify the note.
-- put  - also needs an id for identify the note.
-- delete - the same of above methods.
-- post - needs the user_id, for identify the owner of the note.
-- index - require de user_id, and has title and tags search as optional.In this case, it's using queries ans not params.
+The notes routes supports *get*, *post*, *put* and *delete* methods to **show** a especific note, to **update** a note, to **delete** a note and a index to **query** a note for his title, tags or only for the user id (list all user notes). All methods requires a id param:
+
+- ```show``` - needs an id for identify the note.
+- ```put```  - also needs an id for identify the note.
+- ```delete``` - the same of above methods.
+- ```post``` - needs the user_id, for identify the owner of the note.
+- ```index``` - require de user_id, and has title and tags search as optional.In this case, it's using queries ans not params.
 
 ### /tags
-- the tags route supports the get method, to show all user registered tags. Needs the user_id for identify the tags.
+- the tags route supports the *get* method, to **show** all user registered tags. Needs the user_id for identify the tags.
 
 ## How to use
- After install all dependencies (with npm install), just run npm start in terminal for initialize the server. The standart port is 5000 but is changeable in server.js archive.
+
+ After install all dependencies (with ```npm install```), just run ```npm start``` in terminal for initialize the server. The standart port is 5000 but is changeable in server.js archive.
