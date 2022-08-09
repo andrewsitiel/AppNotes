@@ -8,4 +8,4 @@ router.use('/users', userRoutes);
 router.use("/notes", notesRoutes);
 router.use("/tags", tagsRoutes);
 
-module.exports = router
+module.exports = router;

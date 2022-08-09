@@ -9,11 +9,6 @@ class usersController {
 
     const hashedPassword = await hash(password, 8)
 
-    // if (!name) {
-    //   throw new appError('Nome é obrigatório')
-    //   return
-    // };
-
     const database = await databaseConnect();
 
     const checkUserExists = await database.get("SELECT * FROM users WHERE email = (?)" , [ email ]);
