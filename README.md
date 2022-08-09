@@ -1,6 +1,6 @@
 # AppNotes
 
-Back-End of a application for management of notes developed with NodeJs and using SQLite3 as SGBD.
+Back-End of an application for management of notes developed with NodeJs and using SQLite3 as SGBD.
 
 ## Techs
 
@@ -16,7 +16,7 @@ The users route supports *post* and *put* methods to **create** and **update** u
 
 ### /notes
 
-The notes routes supports *get*, *post*, *put* and *delete* methods to **show** a especific note, to **update** a note, to **delete** a note and a index to **query** a note for his title, tags or only for the user id (list all user notes). All methods requires a id param:
+The notes routes supports *get*, *post*, *put* and *delete* methods to **show** an especific note, to **update** an note, to **delete** an note and an index to **query** an note for his title, tags or only for the user's id (list all user's notes). All methods requires an id param:
 
 - ```show``` - needs an id for identify the note.
 - ```put```  - also needs an id for identify the note.
