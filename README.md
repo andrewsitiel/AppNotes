@@ -18,14 +18,14 @@ The users route supports *post* and *put* methods to **create** and **update** u
 
 The notes routes supports *get*, *post*, *put* and *delete* methods to **show** an especific note, to **update** an note, to **delete** an note and an index to **query** an note for his title, tags or only for the user's id (list all user's notes). All methods requires an id param:
 
-- ```show``` - needs an id for identify the note.
-- ```put```  - also needs an id for identify the note.
-- ```delete``` - the same of above methods.
-- ```post``` - needs the user_id, for identify the owner of the note.
-- ```index``` - require de user_id, and has title and tags search as optional. In this case, it's using queries and not params.
+- ```get``` (index) - require de user_id, and has title and tags search as optional. In this case, it's using queries and not params.
+- ```post``` - needs the user_id, for identify the owner of the note (params).
+- ```get``` (show) - needs an id for identify the note (params).
+- ```put``` - also needs an id for identify the note (params).
+- ```delete``` - the same of above methods (params).
 
 ### /tags
-- the tags route supports the *get* method, to **show** all user registered tags. Needs the user_id for identify the tags.
+-The tags route supports the *get* method, to **show** all user registered tags. Needs the user_id for identify the tags.
 
 ## How to use
 
