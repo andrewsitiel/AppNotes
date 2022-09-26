@@ -4,7 +4,7 @@ const { compare } = require("bcryptjs");
 const authConfig = require("../configs/jwt.js");
 const { sign } = require("jsonwebtoken");
 
-class Acess {
+class Access {
 
   async create(request, response) {
     const {email, password } = request.body;
@@ -30,4 +30,4 @@ class Acess {
   }
 }
 
-module.exports= Acess;
+module.exports= Access;
