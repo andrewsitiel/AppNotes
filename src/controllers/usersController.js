@@ -28,10 +28,10 @@ class usersController {
 
   async update(req, res) {
     const { name, email, password, old_password } = req.body;
-    const {id} = req.params
+    const user_id = req.user.id;
 
     const database = await databaseConnect();
-    const user = await database.get("SELECT * FROM users WHERE id = (?)", [id]);
+    const user = await database.get("SELECT * FROM users WHERE id = (?)", [user_id]);
 
     if(!user) {
       throw new appError("Este usuário não existe.")
@@ -67,7 +67,7 @@ class usersController {
       password = ?,
       updated_at = DATETIME("now")
       WHERE id = ?
-    `, [user.name, user.email, user.password, id]
+    `, [user.name, user.email, user.password, user_id]
     );
 
     return res.status(201).json();
