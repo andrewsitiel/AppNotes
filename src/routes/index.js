@@ -5,9 +5,9 @@ const tagsRoutes = require('./tags.routes');
 const accessRoutes = require('./access.routes');
 const router = Router()
 
-router.use("/access", acessRoutes);
 router.use('/users', userRoutes);
 router.use("/notes", notesRoutes);
 router.use("/tags", tagsRoutes);
+router.use("/access", accessRoutes);
 
 module.exports = router;

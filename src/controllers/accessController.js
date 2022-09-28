@@ -5,7 +5,6 @@ const authConfig = require("../configs/jwt.js");
 const { sign } = require("jsonwebtoken");
 
 class Access {
-
   async create(request, response) {
     const {email, password } = request.body;
 

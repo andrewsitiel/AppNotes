@@ -9,18 +9,16 @@ function ensureAuthenticated(request, response, next) {
   {throw new AppError("JWT Token não informado", 401)}
 
   const [,token] = authHeader.split(" ");
-
+  
   try {
-   const { sub:user_id } = verify(token, authConfig.jwt.secret);
-
-   request.user= {
-    id: Number(user_id)
-   };
+    const { sub: user_id } = verify(token, authConfig.jwt.secret);
+    
+    request.user = {
+      id: Number(user_id),
+    };
 
    return next();
-  } catch {
-    throw new AppError("JWT Token Inválido", 401)
-  }
+  } catch(error) { throw new AppError(error.message, 401) }
 }
 
 module.exports= ensureAuthenticated;
