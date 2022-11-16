@@ -4,6 +4,6 @@ const accessController = require("../controllers/accessController");
 const accessRouter = Router();
 const controller = new accessController();
 
-accessRouter.get("/", controller.create);
+accessRouter.post("/", controller.create);
 
 module.exports = accessRouter;
