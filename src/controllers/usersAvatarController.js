@@ -21,7 +21,7 @@ class UsersAvatarController{
     await diskStorage.saveFile(avatarFilename)
     await knex("users").update({avatar: avatarFilename}).where({id: user_id})
 
-    return response.json()
+    return response.json({avatarFilename})
   }
 }
 

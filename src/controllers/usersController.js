@@ -34,7 +34,7 @@ class usersController {
     const user = await database.get("SELECT * FROM users WHERE id = (?)", [user_id]);
 
     if(!user) {
-      throw new appError("Digite um nome de usuário")
+      throw new appError("Este usuário não existe")
     };
 
     const checkEmailExists = await database.get("SELECT * FROM users WHERE email = (?)", [email]);
@@ -43,8 +43,8 @@ class usersController {
       throw new appError("Este email já está em uso.")
     };
 
-    user.name = name ?? user.name;
-    user.email = email ?? user.email;
+    user.name = name.length > 1 ? name : user.name;
+    user.email = email.length > 1 ? email : user.email;
 
     if(password && !old_password) {
       throw new appError("Por favor, informe a senha antiga.")
@@ -58,7 +58,7 @@ class usersController {
       }
     };
     
-    user.password = password ? await hash(password,8) : user.password;
+    user.password = password ? await hash(password, 8) : user.password;
     
     await database.run(`
       UPDATE users SET
