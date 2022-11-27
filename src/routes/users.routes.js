@@ -7,7 +7,6 @@ const ensureAuthenticated = require("../middleware/ensureAuthenticated");
 const usersController = require('../controllers/usersController');
 const UsersAvatarController = require("../controllers/usersAvatarController");
 
-
 const controller = new usersController();
 const avatarController = new UsersAvatarController();
 const userRoutes = Router();
