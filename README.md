@@ -29,4 +29,4 @@ The notes routes supports *get*, *post*, *put* and *delete* methods to **show** 
 
 ## How to use
 
- After install all dependencies (with ```npm install```), just run ```npm start``` in terminal for initialize the server. The standart port is 5000 but is changeable in server.js archive.
+ After install all dependencies (with ```npm install```), just run ```npm start``` in terminal for initialize the server. The standart port is 5000 but is changeable in server.js file.
